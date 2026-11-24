@@ -5,10 +5,10 @@ public class InputUtility {
 
     private static Scanner scanner = new Scanner(System.in);
 
-    public static int getMenuOption(List<Integer> options) {
+    public static int getMenuOption(int maxOption) {
         int selection = -1;
 
-        while (!options.contains(selection)) {
+        while (selection > maxOption || selection < 1) {
             System.out.print("Enter your choice: ");
             String input = scanner.nextLine();
 
@@ -19,7 +19,7 @@ public class InputUtility {
                 continue;
             }
 
-            if (!options.contains(selection)) {
+            if (selection > maxOption || selection < 1) {
                 System.out.println("Invalid selection.");
             }
         }
@@ -134,5 +134,34 @@ public class InputUtility {
         }
 
         return false;
+    }
+
+    
+    public static String getPhone() {
+        while (true) {
+            String phone = scanner.nextLine();
+
+            if (phone.length() != 10) {
+                System.out.println("Invalid phone number.");
+            }
+
+            //Make sure every character is a digit
+            Boolean isValid = true;
+            for (int i = 0; i < phone.length(); i++) {
+                char letter = phone.charAt(i);
+                try {
+                    int _ = (int)letter;
+                } catch (Exception e) {
+                    System.out.println("Invalid phone number.");
+                    isValid = false;
+                    break;
+                }
+            }
+
+            if (isValid) {
+                return phone;
+            }
+
+        }
     }
 }
