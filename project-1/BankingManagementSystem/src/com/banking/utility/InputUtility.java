@@ -33,19 +33,19 @@ public class InputUtility {
         Boolean isValid = false;
 
         while (!isValid) {
-            System.out.print("Enter ammount: ");
+            System.out.print("Enter amount: ");
             String input = scanner.nextLine();
             
             try {
                 amt = Double.parseDouble(input);
             } catch (Exception e) {
-                System.out.println("Invalid ammount.");
+                System.out.println("Invalid amount.");
                 continue;
             }
 
             //Enforce only two decimal places
             if ((amt * 100) % 1 != 0.0) {
-                System.out.println("Invalid ammount.");
+                System.out.println("Invalid amount.");
                 continue;
             }
 
@@ -143,6 +143,7 @@ public class InputUtility {
 
             if (phone.length() != 10) {
                 System.out.println("Invalid phone number.");
+                continue;
             }
 
             //Make sure every character is a digit
@@ -163,5 +164,9 @@ public class InputUtility {
             }
 
         }
+    }
+
+    public static String strInput() {
+        return scanner.nextLine();
     }
 }

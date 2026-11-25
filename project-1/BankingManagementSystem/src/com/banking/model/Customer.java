@@ -58,15 +58,10 @@ public class Customer {
         String name;
         String phone;
 
-        Scanner sc = new Scanner(System.in);
-        try {
-            System.out.println("Enter name: ");
-            name = sc.nextLine();
-            System.out.println("Enter phone number: ");
-            phone = InputUtility.getPhone();
-        } finally {
-            sc.close();
-        }
+        System.out.println("Enter name: ");
+        name = InputUtility.strInput();
+        System.out.println("Enter phone number: ");
+        phone = InputUtility.getPhone();
 
         System.out.println("Enter email address: ");
         String email = InputUtility.getEmail();
